@@ -25,3 +25,14 @@ const mouseMove$ = Rx.Observable.fromEvent(document, 'mousemove')
     coords.html('X: ' + x.clientX + ' Y: ' + x.clientY);
   });
 
+let nums = [33, 45, 23, 23, 4, 5];
+
+let nums$ = Rx.Observable.from(nums);
+
+nums$.subscribe( x => {
+  console.log(x);
+}, err => {
+  console.log(err);
+}, () => {
+  console.log('Completed...');
+});
