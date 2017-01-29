@@ -40,6 +40,10 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 // const s$ = Rx.Observable.from(s);
 // s$.subscribe(getSubscriber('set'));
 
-const m = new Map([[1, 2], [3, 4], [5,6]]);
-const m$ = Rx.Observable.from(m);
-m$.subscribe(getSubscriber('map'));
+// const m = new Map([[1, 2], [3, 4], [5,6]]);
+// const m$ = Rx.Observable.from(m);
+// m$.subscribe(getSubscriber('map'));
+
+const str = 'This is a string.';
+const str$ = Rx.Observable.from(str);
+str$.subscribe(getSubscriber('str'));
