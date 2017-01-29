@@ -51,6 +51,11 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 const source$ = new Rx.Observable(observer => {
   console.log('Creating Observable...');
   observer.next('A value');
-  observer.complete();
+  observer.next('Another value');
+  setTimeout(function () {
+    observer.next('Hello world');
+    observer.complete();
+  }, 3000);
+
 });
 source$.subscribe(getSubscriber('myObserver'));
