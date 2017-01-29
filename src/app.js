@@ -59,3 +59,6 @@ const source$ = new Rx.Observable(observer => {
 
 });
 source$.subscribe(getSubscriber('myObserver'));
+setTimeout(function() {
+  source$.subscribe(getSubscriber('myobs'));
+}, 5000);
