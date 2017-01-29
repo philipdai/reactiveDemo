@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Rx from 'rxjs/Rx';
-import { getSubscriber } from './utils/getSubscriber';
+import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 
 // const input = $('#input');
 // const button = $('#button');
@@ -26,8 +26,18 @@ import { getSubscriber } from './utils/getSubscriber';
 //     coords.html('X: ' + x.clientX + ' Y: ' + x.clientY);
 //   });
 
-let nums = [33, 45, 23, 23, 4, 5];
+// let nums = [33, 45, 23, 23, 4, 5];
+//
+// let nums$ = Rx.Observable.from(nums);
+//
+// nums$.subscribe(getSubscriber('nums'));
 
-let nums$ = Rx.Observable.from(nums);
+const users = [
+  {name: 'John Doe', email: 'jdoe@gmail.com'},
+  {name: 'Sam Smith', email: 'ssmith@gmail.com'},
+  {name: 'Jen Thompson', email: 'jthompson@gmail.com'}
+];
 
-nums$.subscribe(getSubscriber('nums'));
+const users$ = Rx.Observable.from(users);
+
+users$.subscribe(getObjectSubscriber('users'));
