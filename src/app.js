@@ -17,9 +17,7 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 // });
 //
 // const inputStream$ = Rx.Observable.fromEvent(input, 'keyup');
-//
 // inputStream$.subscribe(x => console.log(x.target.value));
-//
 // const mouseMove$ = Rx.Observable.fromEvent(document, 'mousemove')
 //   .subscribe((x) => {
 //     // console.log(x.clientX, x.clientY);
@@ -27,9 +25,7 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 //   });
 
 // let nums = [33, 45, 23, 23, 4, 5];
-//
 // let nums$ = Rx.Observable.from(nums);
-//
 // nums$.subscribe(getSubscriber('nums'));
 
 // const users = [
@@ -37,13 +33,13 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 //   {name: 'Sam Smith', email: 'ssmith@gmail.com'},
 //   {name: 'Jen Thompson', email: 'jthompson@gmail.com'}
 // ];
-//
 // const users$ = Rx.Observable.from(users);
-//
 // users$.subscribe(getObjectSubscriber('users'));
 
-const s = new Set(['Foo', 43, {name: 'Jeff'}]);
+// const s = new Set(['Foo', 43, {name: 'Jeff'}]);
+// const s$ = Rx.Observable.from(s);
+// s$.subscribe(getSubscriber('set'));
 
-const s$ = Rx.Observable.from(s);
-
-s$.subscribe(getSubscriber('set'));
+const m = new Map([[1, 2], [3, 4], [5,6]]);
+const m$ = Rx.Observable.from(m);
+m$.subscribe(getSubscriber('map'));
