@@ -52,6 +52,7 @@ const source$ = new Rx.Observable(observer => {
   console.log('Creating Observable...');
   observer.next('A value');
   observer.next('Another value');
+  observer.error('Something wrong');
   setTimeout(function () {
     observer.next('Hello world');
     observer.complete();
@@ -59,6 +60,7 @@ const source$ = new Rx.Observable(observer => {
 
 });
 source$.subscribe(getSubscriber('myObserver'));
-setTimeout(function() {
-  source$.subscribe(getSubscriber('myobs'));
-}, 5000);
+
+// setTimeout(function() {
+//   source$.subscribe(getSubscriber('myobs'));
+// }, 5000);
