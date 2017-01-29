@@ -44,6 +44,13 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 // const m$ = Rx.Observable.from(m);
 // m$.subscribe(getSubscriber('map'));
 
-const str = 'This is a string.';
-const str$ = Rx.Observable.from(str);
-str$.subscribe(getSubscriber('str'));
+// const str = 'This is a string.';
+// const str$ = Rx.Observable.from(str);
+// str$.subscribe(getSubscriber('str'));
+
+const source$ = new Rx.Observable(observer => {
+  console.log('Creating Observable...');
+  observer.next('A value');
+  observer.complete();
+});
+source$.subscribe(getSubscriber('myObserver'));
