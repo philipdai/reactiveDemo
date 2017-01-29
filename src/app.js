@@ -32,12 +32,18 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 //
 // nums$.subscribe(getSubscriber('nums'));
 
-const users = [
-  {name: 'John Doe', email: 'jdoe@gmail.com'},
-  {name: 'Sam Smith', email: 'ssmith@gmail.com'},
-  {name: 'Jen Thompson', email: 'jthompson@gmail.com'}
-];
+// const users = [
+//   {name: 'John Doe', email: 'jdoe@gmail.com'},
+//   {name: 'Sam Smith', email: 'ssmith@gmail.com'},
+//   {name: 'Jen Thompson', email: 'jthompson@gmail.com'}
+// ];
+//
+// const users$ = Rx.Observable.from(users);
+//
+// users$.subscribe(getObjectSubscriber('users'));
 
-const users$ = Rx.Observable.from(users);
+const s = new Set(['Foo', 43, {name: 'Jeff'}]);
 
-users$.subscribe(getObjectSubscriber('users'));
+const s$ = Rx.Observable.from(s);
+
+s$.subscribe(getSubscriber('set'));
