@@ -48,19 +48,27 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 // const str$ = Rx.Observable.from(str);
 // str$.subscribe(getSubscriber('str'));
 
-const source$ = new Rx.Observable(observer => {
-  console.log('Creating Observable...');
-  observer.next('A value');
-  observer.next('Another value');
-  observer.error('Something wrong');
-  setTimeout(function () {
-    observer.next('Hello world');
-    observer.complete();
-  }, 3000);
-
-});
-source$.subscribe(getSubscriber('myObserver'));
+// const source$ = new Rx.Observable(observer => {
+//   console.log('Creating Observable...');
+//   observer.next('A value');
+//   observer.next('Another value');
+//   observer.error('Something wrong');
+//   setTimeout(function () {
+//     observer.next('Hello world');
+//     observer.complete();
+//   }, 3000);
+//
+// });
+// source$.subscribe(getSubscriber('myObserver'));
 
 // setTimeout(function() {
 //   source$.subscribe(getSubscriber('myobs'));
 // }, 5000);
+
+// cold observer sample
+const source$ = Rx.Observable.create(observer => {
+  observer.next(Date.now());
+});
+
+source$.subscribe(getSubscriber('one'));
+source$.subscribe(getSubscriber('two'));
