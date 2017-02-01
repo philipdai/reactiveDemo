@@ -66,9 +66,19 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 // }, 5000);
 
 // cold observer sample
+// const source$ = Rx.Observable.create(observer => {
+//   observer.next(Date.now());
+// });
+//
+// source$.subscribe(getSubscriber('one'));
+// source$.subscribe(getSubscriber('two'));
+
+// hot observer sample
 const source$ = Rx.Observable.create(observer => {
   observer.next(Date.now());
-});
+}).publish();
 
 source$.subscribe(getSubscriber('one'));
 source$.subscribe(getSubscriber('two'));
+
+source$.connect();
