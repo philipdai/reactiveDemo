@@ -95,12 +95,15 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 //   }, 4000);
 // }, 2000);
 
-const source$ = Rx.Observable.interval(1000)
-  .publish().refCount();
+// const source$ = Rx.Observable.interval(1000)
+//   .publish().refCount();
+//
+// setTimeout(() => {
+//   source$.subscribe(getSubscriber('one'));
+//   setTimeout(() => {
+//     source$.subscribe(getSubscriber('two'));
+//   }, 4000);
+// }, 2000);
 
-setTimeout(() => {
-  source$.subscribe(getSubscriber('one'));
-  setTimeout(() => {
-    source$.subscribe(getSubscriber('two'));
-  }, 4000);
-}, 2000);
+const source$ = Rx.Observable.interval(2000)
+  .subscribe(getSubscriber("interval"));
