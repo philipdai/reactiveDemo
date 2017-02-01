@@ -84,10 +84,20 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 // source$.connect();
 
 // Another hot observer sample
-const source$ = Rx.Observable.interval(1000)
-  .publish();
+// const source$ = Rx.Observable.interval(1000)
+//   .publish();
+//
+// source$.connect();
+// setTimeout(() => {
+//   source$.subscribe(getSubscriber('one'));
+//   setTimeout(() => {
+//     source$.subscribe(getSubscriber('two'));
+//   }, 4000);
+// }, 2000);
 
-source$.connect();
+const source$ = Rx.Observable.interval(1000)
+  .publish().refCount();
+
 setTimeout(() => {
   source$.subscribe(getSubscriber('one'));
   setTimeout(() => {
