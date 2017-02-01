@@ -109,6 +109,9 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 //   .take(5)
 //   .subscribe(getSubscriber("interval"));
 
-const source$ = Rx.Observable.timer(3000, 1000)
-  .take(5)
-  .subscribe(getSubscriber("timer"));
+// const source$ = Rx.Observable.timer(3000, 1000)
+//   .take(5)
+//   .subscribe(getSubscriber("timer"));
+
+const source$ = Rx.Observable.range(0, 10)
+  .subscribe(getSubscriber('range'));
