@@ -74,11 +74,23 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 // source$.subscribe(getSubscriber('two'));
 
 // hot observer sample
-const source$ = Rx.Observable.create(observer => {
-  observer.next(Date.now());
-}).publish();
+// const source$ = Rx.Observable.create(observer => {
+//   observer.next(Date.now());
+// }).publish();
+//
+// source$.subscribe(getSubscriber('one'));
+// source$.subscribe(getSubscriber('two'));
+//
+// source$.connect();
 
-source$.subscribe(getSubscriber('one'));
-source$.subscribe(getSubscriber('two'));
+// Another hot observer sample
+const source$ = Rx.Observable.interval(1000)
+  .publish();
 
 source$.connect();
+setTimeout(() => {
+  source$.subscribe(getSubscriber('one'));
+  setTimeout(() => {
+    source$.subscribe(getSubscriber('two'));
+  }, 4000);
+}, 2000);
