@@ -240,6 +240,11 @@ const source$ = Rx.Observable.range(1, 10);
 //   .skipWhile(i => i < 5)
 //   .subscribe(getSubscriber("skipWhile"));
 
+// source$
+//   .takeWhile(i => i < 5)
+//   .subscribe(getSubscriber("takeWhile"));
+
 source$
-  .takeWhile(i => i < 5)
-  .subscribe(getSubscriber("takeWhile"));
+  .skipWhile(i => i <= 5)
+  .takeWhile(i => i < 10)
+  .subscribe(getSubscriber("skipWhile and takeWhile"));
