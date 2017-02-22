@@ -185,6 +185,11 @@ import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSu
 //   .bufferCount(20)
 //   .subscribe(getSubscriber("bufferCount"));
 
-Rx.Observable.interval(1000)
-  .bufferTime(2000)
-  .subscribe(getSubscriber("bufferTime"));
+// Rx.Observable.interval(1000)
+//   .bufferTime(2000)
+//   .subscribe(getSubscriber("bufferTime"));
+
+const obs1$ = Rx.Observable.interval(1000);
+const obs2$ = Rx.Observable.fromEvent(document, 'click');
+const myBuffer = obs1$.buffer(obs2$);
+const subscribe = myBuffer.subscribe(getSubscriber("Buffered Values"));
