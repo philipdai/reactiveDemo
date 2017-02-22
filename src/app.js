@@ -119,11 +119,16 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 // const source$ = Rx.Observable.of(45, 'hello', [1, 2])
 //   .subscribe(getSubscriber('of'));
 
-let i = 0;
-const source$ = Rx.Observable.defer(function () {
-  i++;
-  return Rx.Observable.of(i);
-});
-source$.subscribe(getSubscriber('one'));
-source$.subscribe(getSubscriber('two'));
-source$.subscribe(getSubscriber('three'));
+// let i = 0;
+// const source$ = Rx.Observable.defer(function () {
+//   i++;
+//   return Rx.Observable.of(i);
+// });
+// source$.subscribe(getSubscriber('one'));
+// source$.subscribe(getSubscriber('two'));
+// source$.subscribe(getSubscriber('three'));
+
+Rx.Observable.interval(1000)
+  .take(10)
+  .map(v => v * v)
+  .subscribe(getSubscriber("map"));

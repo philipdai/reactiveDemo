@@ -4,7 +4,6 @@
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/dist/dist/app.bundle.js" />
         <item url="file://$PROJECT_DIR$/dist/src/app.js" />
-        <item url="file://$PROJECT_DIR$/dist/src/utils/getSubscriber.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -14,9 +13,10 @@
       <root url="file://$PROJECT_DIR$/dist/dist/main.js" />
       <root url="file://$PROJECT_DIR$/dist/webpack.config.js" />
       <root url="file://$PROJECT_DIR$/dist/webpack.config.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/utils/getSubscriber.js" />
+      <root url="file://$PROJECT_DIR$/dist/src/utils/getSubscriber.js" />
       <root url="file://$PROJECT_DIR$/dist/dist/app.bundle.js" />
       <root url="file://$PROJECT_DIR$/dist/src/app.js" />
-      <root url="file://$PROJECT_DIR$/dist/src/utils/getSubscriber.js" />
     </CLASSES>
     <SOURCES />
   </library>
