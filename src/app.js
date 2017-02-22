@@ -236,6 +236,10 @@ import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSu
 
 const source$ = Rx.Observable.range(1, 10);
 
+// source$
+//   .skipWhile(i => i < 5)
+//   .subscribe(getSubscriber("skipWhile"));
+
 source$
-  .skipWhile(i => i < 5)
-  .subscribe(getSubscriber("skipWhile"));
+  .takeWhile(i => i < 5)
+  .subscribe(getSubscriber("takeWhile"));
