@@ -226,6 +226,10 @@ const source$ = new Rx.Observable(oberver => {
 //   })
 //   .subscribe(getSubscriber("findIndex"));
 
+// source$
+//   .take(2)
+//   .subscribe(getSubscriber("take"));
+
 source$
-  .take(2)
-  .subscribe(getSubscriber("take"));
+  .skip(2)
+  .subscribe(getSubscriber("skip"));
