@@ -139,8 +139,16 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 //   .subscribe(getSubscriber("name"));
 
 const input = $('#input');
+const length = $('#length');
+
 Rx.Observable.fromEvent(input, 'keyup')
   .map(e => e.target.value)
+  .map(v => {
+    return {
+      value: v,
+      length: v.length
+    }
+  })
   .subscribe(x => {
-    console.log(x);
+    length.text(x.length);
   });
