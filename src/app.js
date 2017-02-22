@@ -128,7 +128,12 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 // source$.subscribe(getSubscriber('two'));
 // source$.subscribe(getSubscriber('three'));
 
-Rx.Observable.interval(1000)
-  .take(10)
-  .map(v => v * v)
-  .subscribe(getSubscriber("map"));
+// Rx.Observable.interval(1000)
+//   .take(10)
+//   .map(v => v * v)
+//   .subscribe(getSubscriber("map"));
+
+let names = ["Bob", "Jane", "Mike"];
+Rx.Observable.from(names)
+  .map(v => v.toUpperCase())
+  .subscribe(getSubscriber("name"));
