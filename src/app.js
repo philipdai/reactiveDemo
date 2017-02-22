@@ -220,8 +220,12 @@ const source$ = new Rx.Observable(oberver => {
 //   })
 //   .subscribe(getSubscriber("find"));
 
+// source$
+//   .findIndex(function(x, i, obs) {
+//     return x == "Hello";
+//   })
+//   .subscribe(getSubscriber("findIndex"));
+
 source$
-  .findIndex(function(x, i, obs) {
-    return x == "Hello";
-  })
-  .subscribe(getSubscriber("findIndex"));
+  .take(2)
+  .subscribe(getSubscriber("take"));
