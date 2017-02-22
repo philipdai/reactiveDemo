@@ -159,7 +159,19 @@ import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSu
 //     console.log(name);
 //   });
 
-Rx.Observable.interval(2000)
-  .mapTo('Hello World')
-  .take(3)
-  .subscribe(getSubscriber("mapTo"));
+// Rx.Observable.interval(2000)
+//   .mapTo('Hello World')
+//   .take(3)
+//   .subscribe(getSubscriber("mapTo"));
+
+let arr = [
+  {value: 0},
+  {value: 1},
+  {value: 2}
+]
+
+Rx.Observable.from(arr)
+  .pluck('value')
+  .subscribe(x => {
+    console.log(x);
+  });
