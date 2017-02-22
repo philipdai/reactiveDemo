@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Rx from 'rxjs/Rx';
-import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
+import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSubscriber';
 
 // const input = $('#input');
 // const button = $('#button');
@@ -138,17 +138,23 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 //   .map(v => v.toUpperCase())
 //   .subscribe(getSubscriber("name"));
 
-const input = $('#input');
-const length = $('#length');
+// const input = $('#input');
+// const length = $('#length');
+//
+// Rx.Observable.fromEvent(input, 'keyup')
+//   .map(e => e.target.value)
+//   .map(v => {
+//     return {
+//       value: v,
+//       length: v.length
+//     }
+//   })
+//   .subscribe(x => {
+//     length.text(x.length);
+//   });
 
-Rx.Observable.fromEvent(input, 'keyup')
-  .map(e => e.target.value)
-  .map(v => {
-    return {
-      value: v,
-      length: v.length
-    }
-  })
-  .subscribe(x => {
-    length.text(x.length);
+Rx.Observable.fromPromise(getGithubUser('philipdai'))
+  .map(obj => obj.data.name)
+  .subscribe(name => {
+    console.log(name);
   });
