@@ -164,14 +164,23 @@ import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSu
 //   .take(3)
 //   .subscribe(getSubscriber("mapTo"));
 
-let arr = [
-  {value: 0},
-  {value: 1},
-  {value: 2}
-]
+// let arr = [
+//   {value: 0},
+//   {value: 1},
+//   {value: 2}
+// ]
+//
+// Rx.Observable.from(arr)
+//   .pluck('value')
+//   .subscribe(x => {
+//     console.log(x);
+//   });
 
-Rx.Observable.from(arr)
-  .pluck('value')
-  .subscribe(x => {
-    console.log(x);
-  });
+// Rx.Observable.interval(1000)
+//   .buffer(Rx.Observable.interval(2000))
+//   .take(10)
+//   .subscribe(getSubscriber("buffer"));
+
+Rx.Observable.range(1, 100)
+  .bufferCount(20)
+  .subscribe(getSubscriber("bufferCount"));
