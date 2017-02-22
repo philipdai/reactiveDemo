@@ -216,6 +216,6 @@ const source$ = new Rx.Observable(oberver => {
 
 source$
   .find(function(x, i, obs) {
-    return x == 1;
+    return i == 1;
   })
   .subscribe(getSubscriber("find"));
