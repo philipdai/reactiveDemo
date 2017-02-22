@@ -194,13 +194,13 @@ import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSu
 // const myBuffer = obs1$.buffer(obs2$);
 // const subscribe = myBuffer.subscribe(getSubscriber("Buffered Values"));
 
-const source$ = new Rx.Observable(oberver => {
-  oberver.next(1);
-  oberver.next(2);
-  oberver.next("Hello");
-  oberver.next("World");
-  oberver.complete();
-});
+// const source$ = new Rx.Observable(oberver => {
+//   oberver.next(1);
+//   oberver.next(2);
+//   oberver.next("Hello");
+//   oberver.next("World");
+//   oberver.complete();
+// });
 
 // source$
 //   .first()
@@ -230,6 +230,12 @@ const source$ = new Rx.Observable(oberver => {
 //   .take(2)
 //   .subscribe(getSubscriber("take"));
 
+// source$
+//   .skip(2)
+//   .subscribe(getSubscriber("skip"));
+
+const source$ = Rx.Observable.range(1, 10);
+
 source$
-  .skip(2)
-  .subscribe(getSubscriber("skip"));
+  .skipWhile(i => i < 5)
+  .subscribe(getSubscriber("skipWhile"));
