@@ -196,16 +196,20 @@ import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSu
 
 const source$ = new Rx.Observable(oberver => {
   oberver.next(1);
-  oberver.next(2);
-  oberver.next("Hello");
-  oberver.next("World");
+  // oberver.next(2);
+  // oberver.next("Hello");
+  // oberver.next("World");
   oberver.complete();
 });
 
-source$
-  .first()
-  .subscribe(getSubscriber("first"));
+// source$
+//   .first()
+//   .subscribe(getSubscriber("first"));
+//
+// source$
+//   .last()
+//   .subscribe(getSubscriber("last"));
 
 source$
-  .last()
-  .subscribe(getSubscriber("last"));
+  .single()
+  .subscribe(getSubscriber("single"));
