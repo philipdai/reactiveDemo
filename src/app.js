@@ -181,6 +181,10 @@ import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSu
 //   .take(10)
 //   .subscribe(getSubscriber("buffer"));
 
-Rx.Observable.range(1, 100)
-  .bufferCount(20)
-  .subscribe(getSubscriber("bufferCount"));
+// Rx.Observable.range(1, 100)
+//   .bufferCount(20)
+//   .subscribe(getSubscriber("bufferCount"));
+
+Rx.Observable.interval(1000)
+  .bufferTime(2000)
+  .subscribe(getSubscriber("bufferTime"));
