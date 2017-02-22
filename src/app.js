@@ -205,3 +205,7 @@ const source$ = new Rx.Observable(oberver => {
 source$
   .first()
   .subscribe(getSubscriber("first"));
+
+source$
+  .last()
+  .subscribe(getSubscriber("last"));
