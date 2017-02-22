@@ -133,7 +133,14 @@ import { getSubscriber, getObjectSubscriber } from './utils/getSubscriber';
 //   .map(v => v * v)
 //   .subscribe(getSubscriber("map"));
 
-let names = ["Bob", "Jane", "Mike"];
-Rx.Observable.from(names)
-  .map(v => v.toUpperCase())
-  .subscribe(getSubscriber("name"));
+// let names = ["Bob", "Jane", "Mike"];
+// Rx.Observable.from(names)
+//   .map(v => v.toUpperCase())
+//   .subscribe(getSubscriber("name"));
+
+const input = $('#input');
+Rx.Observable.fromEvent(input, 'keyup')
+  .map(e => e.target.value)
+  .subscribe(x => {
+    console.log(x);
+  });
