@@ -234,7 +234,7 @@ import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSu
 //   .skip(2)
 //   .subscribe(getSubscriber("skip"));
 
-const source$ = Rx.Observable.range(1, 10);
+// const source$ = Rx.Observable.range(1, 10);
 
 // source$
 //   .skipWhile(i => i < 5)
@@ -244,7 +244,12 @@ const source$ = Rx.Observable.range(1, 10);
 //   .takeWhile(i => i < 5)
 //   .subscribe(getSubscriber("takeWhile"));
 
-source$
-  .skipWhile(i => i <= 5)
-  .takeWhile(i => i < 10)
-  .subscribe(getSubscriber("skipWhile and takeWhile"));
+// source$
+//   .skipWhile(i => i <= 5)
+//   .takeWhile(i => i < 10)
+//   .subscribe(getSubscriber("skipWhile and takeWhile"));
+
+Rx.Observable.interval(500)
+  .skipUntil(Rx.Observable.timer(2000))
+  .takeUntil(Rx.Observable.timer(7000))
+  .subscribe(getSubscriber("skipUntil"));
