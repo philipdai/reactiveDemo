@@ -153,8 +153,13 @@ import { getSubscriber, getObjectSubscriber, getGithubUser } from './utils/getSu
 //     length.text(x.length);
 //   });
 
-Rx.Observable.fromPromise(getGithubUser('philipdai'))
-  .map(obj => obj.data.name)
-  .subscribe(name => {
-    console.log(name);
-  });
+// Rx.Observable.fromPromise(getGithubUser('philipdai'))
+//   .map(obj => obj.data.name)
+//   .subscribe(name => {
+//     console.log(name);
+//   });
+
+Rx.Observable.interval(2000)
+  .mapTo('Hello World')
+  .take(3)
+  .subscribe(getSubscriber("mapTo"));
